@@ -22,7 +22,7 @@ fun main(){
     var example1 = coVarianceExample<String>("Pra")
     println(example1.type)
 
-    var example2 = coVarianceExample<Number>(1.0)
+    var example2: coVarianceExample<Number> = coVarianceExample<Int>(12)
     var returnValue = example2.type
 
     println(returnValue)
