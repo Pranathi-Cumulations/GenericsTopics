@@ -1,20 +1,16 @@
-fun <T> copy1(from: Array<out T>, to: Array<T>) {
-    assert(from.size == to.size)
-    for (i in from.indices)
-        to[i] = from[i]
+//use site is different from declaration site variance based on where the key words are declared
+
+//if the keywords are mentioned at the class or instance declaration then it is delaration site variance
+//if the keywords are mentioned while declaring the instances of the class or interface then it is use site variance
+class useSiteExample<T>(val para : T){
+
 }
 
-
 fun main(){
-    val ints: Array<Int> = arrayOf(1, 2, 3)
-    val any = Array<Any>(3) { "yes" }
-    copy1(ints, any)
 
-    val ints1: Array<Int> = arrayOf(1, 2, 3)
-    val numbs = Array<Number>(3) { 1.0 }
-
-
-    any.forEach { println(it) }
+    var example1 : useSiteExample<Int> = useSiteExample(2)
+    var example2 : useSiteExample<out Number> = useSiteExample<Int>(2)
+    var example3 : useSiteExample<in Int> = useSiteExample<Number>(2.0)
 
 
 //   ^ type is Array<Int> but Array<Any> was expected
